@@ -1,0 +1,11 @@
+export const firebaseConfig = {
+  apiKey: "AIzaSyC_459LYlP1wUL5Us9xNe5OtkWp4fmUh0s",
+  authDomain: "halisahauygulamasi-369015.firebaseapp.com",
+  projectId: "halisahauygulamasi-369015",
+  storageBucket: "halisahauygulamasi-369015.appspot.com",
+  messagingSenderId: "659254773155",
+  appId: "1:659254773155:web:e296b9a9e56e2ac559c616",
+  measurementId: "G-RR1BCL8VKL"
+};
+
+
