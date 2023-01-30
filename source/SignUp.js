@@ -2,7 +2,8 @@ import { View, SafeAreaView, ImageBackground, Text, TextInput, TouchableOpacity,
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { styles } from "../styles"
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, PhoneAuthCredential, updateCurrentUser, updatePhoneNumber, updateProfile } from 'firebase/auth';
+
 
 const SignUp = () => {
     const navigation = useNavigation()
@@ -14,41 +15,35 @@ const SignUp = () => {
     const [surname, setSurname] = useState('')
 
     const Register = async () => {
-        await createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-            navigation.navigate("App")
-            userCredential.user.displayName = firstname + " " + surname
-            userCredential.user.phoneNumber = phone
-        })
-            .catch((error) => {
-                Alert.alert("Lütfen boşluk bırakmayın.")
-            })
-    }
+        await createUserWithEmailAndPassword(auth, email, password)
+        await updateProfile(auth.currentUser,{displayName:firstname + " " + surname})
+        console.log(email)
+    }   
     return (
-        <View style={styles.background}>
+        <View style={styles.Background}>
             <ImageBackground source={require("../image/background.jpg")} blurRadius={4} style={styles.ImageBackground}>
-                <View style={styles.enterallscreen}>
-                    <TextInput style={styles.Enterscreen} placeholder="Adınız"
+                <View style={styles.EnterAllScreen}>
+                    <TextInput style={styles.EnterScreen} placeholder="Adınız"
                         value={firstname}
                         onChangeText={txt => setFirstname(txt)}
                     />
-                    <TextInput style={styles.Enterscreen} placeholder="Soyadınız"
+                    <TextInput style={styles.EnterScreen} placeholder="Soyadınız"
                         value={surname}
                         onChangeText={txt => setSurname(txt)} />
-                    <TextInput style={styles.Enterscreen} placeholder="Telefon"
+                    <TextInput style={styles.EnterScreen} placeholder="Telefon"
                         value={phone}
                         onChangeText={txt => setPhone(txt)}
                     />
-                    <TextInput style={styles.Enterscreen} placeholder="Mail"
+                    <TextInput style={styles.EnterScreen} placeholder="Mail"
                         value={email}
                         onChangeText={txt => setEmail(txt)}
                     />
-                    <TextInput style={styles.Enterscreen} placeholder="Şifre"
+                    <TextInput style={styles.EnterScreen} placeholder="Şifre"
                         value={password}
                         secureTextEntry={true}
                         onChangeText={txt => setPassword(txt)}
                     />
-
-                    <TouchableOpacity style={styles.buttonenter} onPress={Register}>
+                    <TouchableOpacity style={styles.ButtonEnter} onPress={Register}>
                         <Text> ÜYE OL </Text>
                     </TouchableOpacity>
                 </View>

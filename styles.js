@@ -1,23 +1,46 @@
 import { StyleSheet, Dimensions } from "react-native";
 export const styles = StyleSheet.create({
-    background: {
+    Background: {
         backgroundColor: 'gray',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    footballscreen:{
-        color: "black",
+    AccountScreen: {
+        paddingTop: 20,
+        color: "white",
         fontSize: 20,
-        textAlign:'left',
+        textAlign: 'left',
         alignItems: 'center',
         justifyContent: 'center',
         marginLeft: '5%',
-        marginRight:'5%',
-        width: '100%',
-        marginTop: '30%',
+        marginRight: '5%',
+        width: '90%',
+        marginTop: '25%',
     },
-    buttonenter: {
+    AdvertiseScreen: {
+        color: "white",
+        fontSize: 20,
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '5%',
+        marginRight: '5%',
+        width: '90%',
+        marginTop: '15%',
+    },
+    FootballScreen: {
+        color: "black",
+        fontSize: 25,
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '5%',
+        marginRight: '5%',
+        width: '90%',
+        marginTop: '35%',
+    },
+    ButtonEnter: {
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
@@ -28,11 +51,11 @@ export const styles = StyleSheet.create({
         height: 48,
         borderRadius: 30
     },
-    title: {
+    Title: {
         color: "White",
         fontSize: 16,
     },
-    Enterscreen: {
+    EnterScreen: {
         color: 'black',
         marginTop: '5%',
         marginLeft: '25%',
@@ -44,12 +67,116 @@ export const styles = StyleSheet.create({
         paddingLeft: 10,
         borderRadius: 30
     },
-    ticker: {
-        paddingTop:10,
-        color:'white',
+    Ticker: {
+        paddingTop: 10,
+        color: 'white',
         fontSize: 20,
     },
-    enterallscreen: {
+    BookingScreenView1: {
+        flexDirection: 'row',
+        //backgroundColor: 'yellow',
+        marginTop: '5%',
+
+    },
+    BookingScreenView2: {
+        flexDirection: 'row',
+        //backgroundColor: 'green',
+        marginTop: '5%',
+
+    },
+    BookingScreenSelect2: {
+        marginLeft: '50%',
+        marginTop: '-50%',
+        borderRadius: 30,
+        width: '60%',
+    },
+    BookingScreenHalisahaSecme: {
+        textAlign: 'auto',
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor:'white',
+        marginTop: '10%',
+    },
+    BookingButtonInside: {
+        alignContent: 'center',
+        justifyContent: 'center',
+        marginLeft: '20%',
+        width: '73%',
+        marginTop: 15,
+        backgroundColor: 'white',
+        borderRadius: 30
+    },
+    BookingScreenButtonTime: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '15%',
+        width: '30%',
+        marginTop: 40,
+        marginBottom: 40,
+        backgroundColor: 'white',
+        height: 50,
+        borderRadius: 30,
+    },
+    BookingScreenButtonYer: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '25%',
+        width: '60%',
+        marginTop: 30,
+        marginBottom: 30,
+        backgroundColor: 'white',
+        height: 50,
+        borderRadius: 30,
+    },
+    BookingButton: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '20%',
+        width: '30%',
+        marginLeft: '35%',
+        marginTop: 10,
+        marginBottom: 0,
+        backgroundColor: 'white',
+        height: '5%',
+        borderRadius: 30,
+    },
+    SearchScreen: {
+        height: '90%',
+    },
+    SearchScreenTextBilgi: {
+        width: '100%',
+        marginTop: 10,
+        backgroundColor: 'white',
+        height: 20,
+        borderRadius: 0,
+        marginBottom: 5,
+        
+    },
+    SearchScreenTextAciklama: {
+        width: '100%',
+        marginTop: 10,
+        backgroundColor: 'white',
+        height: 330,
+        borderRadius: 0,
+        marginBottom: 10,
+    },
+    BookingScreenHalisaha: {
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '5%',
+        width: '90%',
+        marginTop: 15,
+        backgroundColor: 'white',
+        height: 48,
+        borderRadius: 40,
+
+    },
+    EnterAllScreen: {
         position: 'relative',
         marginTop: '50%'
     },
@@ -57,7 +184,7 @@ export const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
-    map: {
+    Map: {
         ...StyleSheet.absoluteFillObject,
-      },
+    },
 });

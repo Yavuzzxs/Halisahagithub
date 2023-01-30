@@ -13,7 +13,6 @@ const Auth = () => {
       } else {
         navigation.navigate("Main")
       }
-
     })
   }, [])
 }

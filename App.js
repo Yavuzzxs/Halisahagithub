@@ -10,26 +10,28 @@ import { Ionicons } from "@expo/vector-icons"
 
 import { initializeApp } from "firebase/app"
 import { firebaseConfig } from "./config"
-
 import Auth from "./source/Auth"
 import SignIn from "./source/SignIn"
 import SignUp from "./source/SignUp"
 import Map from "./source/Map"
 import Football from "./source/Football"
 import Booking from "./source/Booking"
-import Hesabım from "./source/Hesabım"
-import Mesajlarım from "./source/Mesajlarım"
+import Advertise from "./source/Advertise"
+import Search from "./source/Search"
+import Account from "./source/Account"
+
 import İlanlarım from "./source/İlanlarım"
 
 initializeApp(firebaseConfig)
 
 const Stack = createNativeStackNavigator()
+const FootballStack = createNativeStackNavigator()
 const Drawer = createDrawerNavigator()
 const Tab = createBottomTabNavigator()
 const Tabs = () => {
-
   return (
     <Tab.Navigator
+    independent={true}
       initialRouteName={"Map"}
       screenOptions={({ route }) => ({
         headerShown: false,
@@ -66,7 +68,7 @@ const Tabs = () => {
       })}
     >
       <Tab.Screen name={"Map"} component={Map} />
-      <Tab.Screen name={"Football"} component={Football} />
+      <Tab.Screen name={"Football"} component={FootballRoute} />
       <Tab.Screen name={"Menu"} component={App}
         listeners={({ navigation }) => ({
           tabPress: e => {
@@ -77,7 +79,18 @@ const Tabs = () => {
     </Tab.Navigator>
   )
 }
-
+const FootballRoute=()=>{
+  return(
+    <NavigationContainer independent={true}>
+      <FootballStack.Navigator screenOptions={{headerShown:false, tabBarVisible : false, gestureEnabled: true, gestureDirection: 'horizontal' }} initialRouteName="Football">
+        <FootballStack.Screen name="Football" component={Football} />
+        <FootballStack.Screen name="Advertise" component={Advertise} options={{title:"Ilan Ver",headerBackTitle:"Geri"}}/>
+        <FootballStack.Screen name="Search" component={Search} options={{title:"Ilan Ara",headerBackTitle:"Geri"}}/>
+        <FootballStack.Screen name="Booking" component={Booking} options={{title:"Randevu Al",headerBackTitle:"Geri"}}/>
+      </FootballStack.Navigator>
+    </NavigationContainer>
+  )
+}
 const AuthScreen = () => {
   return (
     <NavigationContainer independent={true}>
@@ -86,7 +99,6 @@ const AuthScreen = () => {
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Main" component={App} />
-        
       </Stack.Navigator>
     </NavigationContainer>)
 }
@@ -95,11 +107,10 @@ const App = () => {
     <Provider>
       <NavigationContainer independent={true}>
         <Drawer.Navigator screenOptions={{ headerShown: false, gestureEnabled: false, gestureDirection: 'horizontal' }} initialRouteName="Football" drawerContent={props => <DrawerContent {...props} />}>
-          <Drawer.Screen name="Main" component={App} />
-          <Drawer.Screen name="Hesabım" options={{ headerShown: true }} component={Hesabım} />
-          <Drawer.Screen name="Mesajlarım" options={{ headerShown: true }} component={Mesajlarım} />
-          <Drawer.Screen name="İlanlarım" options={{ headerShown: true }} component={İlanlarım} />
-          <Stack.Screen name="Booking" component={App} />
+          <Drawer.Screen name="Main" component={Tabs} />
+          <Drawer.Screen name="Account" options={{ headerShown: true,title:"Hesabım" }} component={Account} />
+          <Drawer.Screen name="İlanlarım" options={{ headerShown: true,title:"İlanlarım" }} component={İlanlarım} />
+          
         </Drawer.Navigator>
       </NavigationContainer>
     </Provider>

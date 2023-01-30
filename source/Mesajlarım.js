@@ -5,7 +5,7 @@ const Mesajlarım = () => {
   
   return (
     <View>
-      <Text></Text>
+      
     </View>
   )
 }

@@ -32,20 +32,7 @@ export function DrawerContent(props) {
               )}
               label="Hesabım"
               onPress={() => {
-                props.navigation.navigate('Hesabım');
-              }}
-            />
-            <DrawerItem
-              icon={() => (
-                <Ionicons
-                  name={'chatbox-outline'}
-                  size={25}
-                  color={'green'}
-                />
-              )}
-              label="Mesajlarım"
-              onPress={() => {
-                props.navigation.navigate('Mesajlarım');
+                props.navigation.navigate('Account');
               }}
             />
             <DrawerItem
@@ -56,7 +43,7 @@ export function DrawerContent(props) {
                   color={'green'}
                 />
               )}
-              label="İlanlarım"
+              label="İlanlar"
               onPress={() => {
                 props.navigation.navigate('İlanlarım');
               }}
